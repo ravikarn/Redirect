@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Will Insert The Title Here</title>
+
+  	<script src="js/angular.js"></script>
+  	<script src="js/application.js"></script>
+  	<script src="js/controller.js"></script>
+ 
+  	<link rel="stylesheet" href="css/bootstrap.css" />
+</head>
+<body ng-controller="homeCtrl" ng-init="init()">
+
+
+
+
+<div>
+
+
+
+<a href="#/create" class="btn btn-success btn-lg">Create</a>
+<a href="#/read" class="btn btn-default btn-lg">Read</a>
+<a href="#/update" class="btn btn-warning btn-lg">Update</a>
+<a href="#/delete" class="btn btn-danger btn-lg">Delete</a>
+<a href="#/upload" class="btn btn-info btn-lg">Upload</a>
+
+
+
+<br>
+
+
+ <div data-ng-view></div> 
+
+</div>
+
+
+
+<!-- <iframe src="pages/iframeSample.html">
+</iframe>  -->
+</body>
+</html> 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+<appender name="File" class="org.apache.log4j.RollingFileAppender">
+
+<param name="File" value="D:/loggers/redirect.log" />
+<param name="Append" value="true" />
+<param name="MaxFileSize" value="10MB"/>
+<param name="MaxBackupIndex" value="10"/>
+
+<layout class="org.apache.log4j.PatternLayout">
+<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS}-%-5p-%-10c:%m%n"/>
+</layout>
+
+</appender>
+
+
+
+
+
+<!-- Application Loggers -->
+
+<logger name="com">
+<level value="debug" />
+<appender-ref ref="File" />
+</logger>
+
+<!-- 3rdparty Loggers -->
+<logger name="org.springframework.core">
+<level value="debug" />
+<appender-ref ref="File" />
+</logger>
+
+<logger name="org.springframework.beans">
+<level value="error" />
+<appender-ref ref="File" />
+</logger>
+
+<logger name="org.springframework.context">
+<level value="error" />
+<appender-ref ref="File" />
+</logger>
+
+<logger name="org.springframework.web">
+<level value="error" />
+<appender-ref ref="File" />
+</logger>
+
+<root>
+<priority value="WARN" />
+<appender-ref ref="File" />
+</root>
+</log4j:configuration> 

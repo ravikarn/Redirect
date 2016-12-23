@@ -1,0 +1,39 @@
+<div>
+
+
+
+	<h1>Employee Data</h1>
+	<div class="span12" style="background-color:#EFEFEF">
+	
+	<form>
+         <div class="form-group">
+            <label for="firstName">First Name</label>
+            
+            <input type="text" class="form-control" placeholder="First Name" ng-model='emp.fname' ngTrim="true">
+       
+
+</span>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" placeholder="Last Name" ng-model='emp.lname' ngTrim="true">
+        </div>
+       <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" class="form-control" placeholder="Date of Birth" ng-model='emp.dob' ngTrim="true">
+        </div>
+         <div class="form-group">
+            <label for="cellPhone">Cell Phone</label>
+            <input type="number" class="form-control" placeholder="Cell Phone" ng-model='emp.cell' ngTrim="true">
+        </div>
+       <div class="form-group">
+            <label for="departmentId">Department Id</label>
+            <input type="number" class="form-control" placeholder="Department Id" ng-model='emp.dep' ngTrim="true">
+        </div>
+       
+        <button type="submit" class="btn btn-success" id="modifyBtn" value="Add" ng-click="add()">Add</button>
+    </form>
+	
+
+	</div>
+</div>

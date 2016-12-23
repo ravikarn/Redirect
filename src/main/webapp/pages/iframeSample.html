@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.tabs {
+	width: 114px;
+	height: 30px;
+	text-align: center;
+	float: left;
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-bottom: 4px;
+}
+
+.highlighted {
+	background-color: #4c4c4c;
+	color: white;
+	font-weight: bold;
+	-webkit-box-shadow: 8px 9px 19px -6px rgba(158, 152, 158, 1);
+	-moz-box-shadow: 8px 9px 19px -6px rgba(158, 152, 158, 1);
+	box-shadow: 8px 9px 19px -6px rgba(158, 152, 158, 1);
+}
+
+.defaultTab {
+	background-color: #e2cc00;
+}
+
+.tabText {
+	padding-top: 2px;
+	display: block;
+	font-size: large;
+	font-weight: 500;
+}
+</style>
+<script>
+	var d = new Date();
+	document.getElementById('demo').innerHTML = d.toDateString();
+</script>
+</head>
+<body>
+	<p style='text-align: left; margin-left: 10px; font-size: larger'>Dear
+		(Employee Name),</p>
+	<p style='text-align: left; margin-left: 150px; font-size: larger'>
+		Please find below consolidated dashboard</p>
+	<div style='width: 1300px; height: 30px;'>
+		<button class='tabs' ng-click='activeTab(&quot;messaging&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;messaging&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;messaging&quot;}'>
+			<span class='tabText'>Messaging</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;ads&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;ads'
+			,&quot;defaultTab&quot;:highlightedTab!=&quot;ads&quot;}'>
+			<span class='tabText'>ADS</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;asset&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;asset'
+			,&quot;defaultTab&quot;:highlightedTab!=&quot;asset&quot;}'>
+			<span class='tabText'>Asset</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;cdc&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;cdc&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;cdc&quot;}'>
+			<span class='tabText'>CDC</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;collaboration&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;collaboration&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;collaboration&quot;}'>
+			<span class='tabText'>Collaboration</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;digitization&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;digitization&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;digitization&quot;}'>
+			<span class='tabText'>Digitization</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;esm&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;esm&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;esm&quot;}'>
+			<span class='tabText'>ESM</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;front&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;front&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;front&quot;}'>
+			<span class='tabText' title='Front System';>Front</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;ccm&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;ccm&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;ccm&quot;}'>
+			<span class='tabText'>GHD - CCM Net</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;is&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;is&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;is&quot;}'>
+			<span class='tabText'>GHD - IS</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;ultimatix&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;ultimatix&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;ultimatix&quot;}'>
+			<span class='tabText' title='GHD-Ultimatix';>GHD</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;monitoring&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;monitoring&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;monitoring&quot;}'>
+			<span class='tabText' title='Global IS Monitoring';> Global IS</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;gns&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;gns&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;gns&quot;}'>
+			<span class='tabText'> GNS</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;green&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;green&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;green&quot;}'>
+			<span class='tabText'>Green IT</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;hpc&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;hpc&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;hpc&quot;}'>
+			<span class='tabText'>HPC</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;analysis&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;analysis&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;analysis&quot;}'>
+			<span class='tabText'>IS Analysis</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;pmo&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;pmo&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;pmo&quot;}'>
+			<span class='tabText'>IS PMO</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;ts3&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;ts3&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;ts3&quot;}'>
+			<span class='tabText'>IS TS3</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;network&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;network&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;network&quot;}'>
+			<span class='tabText'>Network</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;offshore&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;offshore&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;offshore&quot;}'>
+			<span class='tabText'>Off Shore</span>
+		</button>
+		<button class='tabs' ng-click='activeTab(&quot;quality&quot;)'
+			ng-class='{&quot;highlighted&quot;:highlightedTab===&quot;quality&quot;,&quot;defaultTab&quot;:highlightedTab!=&quot;quality&quot;}'>
+			<span class='tabText'>Quality</span>
+		</button>
+	</div>
+	<div
+		style='width: 1348px; height: 40px; text-align: left; margin-top: 90px;'>
+		<span
+			style='margin-left: 470px; width: 306px; padding-top: 11px; padding-bottom: 7px; display: block; font-size: large; font-weight: 500; padding-left: 10px; background-color: #D7DAE0'>Daily
+			Dashboard - <span id='demo' style='font-weight: 500'></span>
+		</span>
+		<div
+			style='background-color: #FA3264; width: 500px; height: 30px; text-align: center; border: 1px solid black; float: left; margin-top: 8px;'>
+			<span
+				style='padding-top: 6px; display: block; font-size: large; font-weight: 600;'>Operational</span>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-top: 4px;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Pending
+						Ticket Status</u></span><br> <span
+					style='padding-top: 0px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>Less
+					than 03 days:</span><br> <span
+					style='padding-top: 0px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>Less
+					than 07 days:</span><br> <span
+					style='padding-top: 0px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>Less
+					than 10 days:</span><br> <span
+					style='padding-top: 0px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>More
+					than 10 days:</span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-top: 4px;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>CR
+						Pending Status</u></span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 150px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Servers
+						in TGIM Compliance</u></span><br> <span
+					style='margin-top: -10px; margin-right: 8px; display: block; font-size: medium; font-weight: 500;'>Overall
+					Status___Pending servers</span><br> <span
+					style='margin-top: -10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>ADS:</span><br>
+				<span
+					style='margin-top: -10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>Collaboration:</span><br>
+				<span
+					style='margin-top: -10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>Others:</span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 150px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Server
+						Count</u></span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 200px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Overall
+						AV Compliance</u></span><br> <span
+					style='margin-top: 10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>AV
+					Non-Compliance:</span><br> <span
+					style='margin-top: 10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>Non-Compliant
+					Device:</span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 200px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Dec
+						15 Patch Compliant Status</u></span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 300px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Availability
+						Status</u></span><br> <span
+					style='margin-top: 10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>Service
+					Availability:</span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 300px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>SLA</u></span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 150px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Problem
+						Management Tracking</u></span><br> <span
+					style='margin-top: -10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>No
+					of problems:</span><br> <span
+					style='margin-top: -10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>Problems
+					this month:</span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 150px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>BSC
+						Outlier Status Status</u></span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 200px; text-align: center; border: 1px solid black; float: left;''>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;''><u>Issued
+						Raised To Vertical Directly</u></span><br> <span
+					style='margin-top: 10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>No
+					of issues raised to verticals directly:</span><br> <span
+					style='margin-top: 10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>Status
+					Update of the issues:</span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 200px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Automation/Digitization</u></span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 200px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Certification</u></span><br>
+				<span
+					style='margin-top: 10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>No.of
+					associates with E2 certified:</span><br> <span
+					style='margin-top: 10px; margin-right: 33px; display: block; font-size: medium; font-weight: 500;'>No.of
+					associates with E3 certified:</span></span>
+			</div>
+			<div
+				style='background-color: #FCB8BD; width: 248px; height: 200px; text-align: center; border: 1px solid black; float: left;'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Manpower
+						Management</u></span>
+			</div>
+		</div>
+		<div
+			style='background-color: #22BF4A; width: 250px; height: 30px; text-align: center; border: 1px solid black; float: left; margin-top: 8px;'>
+			<span
+				style='padding-top: 6px; display: block; font-size: large; font-weight: 600;'>Software/WBT/KM
+				Assets</span>
+			<div
+				style='background-color: #C0F7AB; width: 250px; height: 352px; text-align: center; border: 1px solid black; float: left; margin-top: 4px; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Software
+						Compliance</u></span>
+			</div>
+			<div
+				style='background-color: #C0F7AB; width: 250px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Mandatory
+						WBT Compliance</u></span>
+			</div>
+			<div
+				style='background-color: #C0F7AB; width: 250px; height: 300px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Asset
+						Contribution In KM</u></span>
+			</div>
+			<div
+				style='background-color: #C0F7AB; width: 250px; height: 150px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Project
+						Status</u></span>
+			</div>
+			<div
+				style='background-color: #C0F7AB; width: 250px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Feedback
+						From Branches</u></span>
+			</div>
+			<div
+				style='background-color: #C0F7AB; width: 250px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Training
+						and KSS from Branches</u></span>
+			</div>
+		</div>
+		<div
+			style='background-color: #A260F7; width: 250px; height: 30px; text-align: center; border: 1px solid black; float: left; margin-top: 8px;'>
+			<span
+				style='padding-top: 6px; display: block; font-size: large; font-weight: 600;'>Assets</span>
+			<div
+				style='background-color: #E2CAFA; width: 250px; height: 352px; text-align: center; border: 1px solid black; float: left; margin-top: 4px; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>GPS
+						Request Summary</u></span>
+			</div>
+			<div
+				style='background-color: #E2CAFA; width: 250px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>PO
+						Tracking Summary</u></span>
+			</div>
+			<div
+				style='background-color: #E2CAFA; width: 250px; height: 300px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Scrap
+						Activity Status</u></span>
+			</div>
+			<div
+				style='background-color: #E2CAFA; width: 250px; height: 150px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Issue
+						Tracking</u></span>
+			</div>
+			<div
+				style='background-color: #E2CAFA; width: 250px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Major
+						Alert Tracking</u></span>
+			</div>
+		</div>
+		<div
+			style='background-color: #F5A905; width: 340px; height: 30px; text-align: center; border: 1px solid black; float: left; margin-top: 8px;'>
+			<span
+				style='padding-top: 6px; display: block; font-size: large; font-weight: 600;'>Process</span>
+			<div
+				style='background-color: #F7DAAB; width: 168px; height: 352px; text-align: center; border: 1px solid black; float: left; margin-top: 4px; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>
+						Internal Audit Q3 FY 15-16</u></span>
+			</div>
+			<div
+				style='background-color: #F7DAAB; width: 167px; height: 352px; text-align: center; border: 1px solid black; float: left; margin-top: 4px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Risk
+						Register</u></span>
+			</div>
+			<div
+				style='background-color: #F7DAAB; width: 335px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Quarterly
+						PMR Status</u></span>
+			</div>
+			<div
+				style='background-color: #F7DAAB; width: 168px; height: 300px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Customer
+						Satisfaction Index</u></span>
+			</div>
+			<div
+				style='background-color: #F7DAAB; width: 168px; height: 300px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Lean
+						Six Sigma Compliance</u></span>
+			</div>
+			<div
+				style='background-color: #F7DAAB; width: 168px; height: 150px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>PI
+						Projects</u></span>
+			</div>
+			<div
+				style='background-color: #F7DAAB; width: 168px; height: 150px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Vendor
+						Dashboard</u></span>
+			</div>
+			<div
+				style='background-color: #F7DAAB; width: 168px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Open
+						Vulnerablity Tracking</u></span>
+			</div>
+			<div
+				style='background-color: #F7DAAB; width: 168px; height: 200px; text-align: center; border: 1px solid black; float: left; margin-left: -1px'>
+				<span
+					style='padding-top: 6px; display: block; font-size: large; font-weight: 500;'><u>Half
+						Yearly architecture Overview</u></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

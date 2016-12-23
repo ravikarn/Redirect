@@ -1,0 +1,37 @@
+<div class="span6 offset3">
+	Search Here:
+	
+	<input type = "text" ng-model = 'searchItem'> {{searchItem}}
+
+<table class="table table-hover" class = "span8 offset2">
+  <thead>
+<tr>
+
+	<td>ID</td>
+	<td>First Name</td>
+	<td>Last Name</td>
+	<td>Birthday</td>
+	<td>Cell phone</td>
+	<td>Dept id</td>
+	
+</tr>
+</thead>
+ <tr  ng-repeat="module in modules | filter: searchItem" >
+   
+
+	<td>{{module.id}}</td>
+
+	<td><span>{{ module.fname }}</span></td>
+	<td><span>{{ module.lname }}</span></td>
+	<td><span>{{ module.dob }}</span></td>
+	<td><span>{{ module.cell }}</span></td>
+	<td><span>{{ module.dep }}</span></td>
+
+	
+ <tr>
+</table>
+   
+
+
+
+</div>

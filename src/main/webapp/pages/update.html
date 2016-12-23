@@ -1,0 +1,47 @@
+<div>
+	
+	<table class="table table-hover" class = "span8 offset2">
+  <thead>
+<tr>
+<td>Check</td>
+	<td>ID</td>
+	<td>First Name</td>
+	<td>Last Name</td>
+	<td>Birthday</td>
+	<td>Cell phone</td>
+	<td>Dept id</td>
+	
+</tr>
+</thead>
+ <tr  ng-repeat="module in modules" id="{{$index}}" >
+   <td>
+       <input type="checkbox"  ng-checked="false" ng-model="module.k" >
+      </td>
+
+	<td><span ng-show="!module.k">{{module.id}}</span>
+		<span ng-show="module.k">{{module.id}}</span></span>
+	</td>
+	<td><span ng-show="!module.k">{{module.fname}}</span>
+		<span ng-show="module.k"><input type="text" ng-model="module.fname"></span></td>
+	<td><span ng-show="!module.k">{{module.lname}}</span>
+		<span ng-show="module.k"><input type="text" ng-model="module.lname"></span></td>
+	<td><span ng-show="!module.k">{{module.dob}}</span>
+		<span ng-show="module.k"><input type="date" ng-model="module.dob"></span></td>
+	<td><span ng-show="!module.k">{{module.cell}}</span>
+		<span ng-show="module.k"><input type="number" ng-model="module.cell"></span></td>
+	<td><span ng-show="!module.k">{{module.dep}}</span>
+		<span ng-show="module.k"><input type="number" ng-model="module.dep"></span></td>
+
+	
+ <tr>
+ <tr>
+ <td colspan=7 align="center"> <button ng-click="updateRow()" class="btn btn-warning">Update</button></td>
+ </tr>
+</table>
+
+
+
+
+
+	
+</div>
